@@ -1,2 +1,5 @@
-# .NETBlazor-Crud
-Crud utilizando o Blazor
+# Crud utilizando o Blazor
+
+Vídeo => https://www.youtube.com/watch?v=zv2gdqxZmFs
+
+- .NET 8
