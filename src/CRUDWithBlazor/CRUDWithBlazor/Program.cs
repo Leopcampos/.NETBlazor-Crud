@@ -15,10 +15,15 @@ builder.Services.AddRazorComponents()
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<AppDbContext>(opts
-    => opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") 
+    => opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Conexão não encontrada")));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddScoped(http => new HttpClient
+{
+    BaseAddress = new Uri(builder.Configuration.GetSection("BaseAddress").Value)
+});
 
 var app = builder.Build();
 
